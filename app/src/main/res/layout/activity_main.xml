@@ -10,10 +10,11 @@
         android:id="@+id/editTextNumber"
         android:layout_width="88dp"
         android:layout_height="58dp"
+        android:layout_marginTop="16dp"
         android:ems="10"
         android:inputType="number"
         app:layout_constraintEnd_toEndOf="@+id/textView2"
-        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintHorizontal_bias="0.49"
         app:layout_constraintStart_toStartOf="@+id/textView2"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
@@ -33,25 +34,25 @@
         android:id="@+id/textView"
         android:layout_width="224dp"
         android:layout_height="44dp"
-        android:text="TextView"
+        android:text="Mata in siffra ovanför"
         android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.474" />
+        app:layout_constraintTop_toBottomOf="@+id/button"
+        app:layout_constraintVertical_bias="0.119" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="341dp"
-        android:layout_height="26dp"
-        android:layout_marginBottom="176dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="88dp"
         android:text="Skriv in din längd så gissar jag din skorstorlek!"
         android:textAlignment="center"
-        app:layout_constraintBottom_toTopOf="@+id/textView"
         app:layout_constraintEnd_toEndOf="@+id/textView"
         app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="@+id/textView" />
+        app:layout_constraintStart_toStartOf="@+id/textView"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

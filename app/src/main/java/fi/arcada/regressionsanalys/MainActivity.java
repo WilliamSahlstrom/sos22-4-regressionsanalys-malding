@@ -60,8 +60,9 @@ public class MainActivity extends AppCompatActivity {
 
         // Anropa regLine.getX()-metoden via objektet regLine, och använd yValue som parameter
         // Skicka svaret till en TextView i layouten!
-        regLine.getX(inputY);
+        //regLine.getX(inputY);
 
+        textView.setText("Skostorlek: " + regLine.getX(inputY));
 
         // DEL 3: Anropa regLine.get()-metoden via objektet regLine, och använd yValue som parameter
         // Skicka svaret till en TextView i layouten!
