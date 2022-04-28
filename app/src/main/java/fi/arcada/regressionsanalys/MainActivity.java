@@ -40,12 +40,11 @@ public class MainActivity extends AppCompatActivity {
     // Gör så att den här metoden anropas vid ett knapptryck
     public void getEstimate(View view) {
 
-        // RegressionLine beräknar regressionslinjen på basen av våra datamängder
-        // RegressionLine är alltså en klass som vi själva definierat (och som bör vidareutvecklas!)
-        // Instansiera regressionLine t.ex. så här:
-
+        // Ta emot användarens input (längd) och spara i yValue
         double inputY = 0.0;
 
+        // Använd ett try/catch-block för NumberFormatException så att appen inte crashar
+        // om man skriver någonting annat än siffror
         try {
             inputY = Double.parseDouble(String.valueOf(editTextNumber.getText()));
             System.out.println(inputY);
@@ -54,18 +53,15 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "Laita numero saatanan uuno : " + e.getMessage(), Toast.LENGTH_LONG).show();
         }
 
-        RegressionLine regLine = new RegressionLine(xData, yData, inputY);
-
-
-
-        // Ta emot användarens input (längd) och spara i yValue
-
-        // Använd ett try/catch-block för NumberFormatException så att appen inte crashar
-        // om man skriver någonting annat än siffror
-
+        // RegressionLine beräknar regressionslinjen på basen av våra datamängder
+        // RegressionLine är alltså en klass som vi själva definierat (och som bör vidareutvecklas!)
+        // Instansiera regressionLine t.ex. så här:
+        RegressionLine regLine = new RegressionLine(xData, yData);
 
         // Anropa regLine.getX()-metoden via objektet regLine, och använd yValue som parameter
         // Skicka svaret till en TextView i layouten!
+        regLine.getX(inputY);
+
 
         // DEL 3: Anropa regLine.get()-metoden via objektet regLine, och använd yValue som parameter
         // Skicka svaret till en TextView i layouten!
