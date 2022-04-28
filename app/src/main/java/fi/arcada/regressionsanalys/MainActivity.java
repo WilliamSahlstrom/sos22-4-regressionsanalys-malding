@@ -4,6 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -17,6 +20,9 @@ public class MainActivity extends AppCompatActivity {
     double yValue;
 
     // Deklarera övriga variabler och objekt du behöver, t.ex. TextViews osv.
+    TextView textView, textView2;
+    EditText editTextNumber;
+    Button button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)  {
@@ -24,6 +30,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         // Här kommer som vanligt alla findViewById som behövs
+        textView = findViewById(R.id.textView);
+        textView2 = findViewById(R.id.textView2);
+        editTextNumber = findViewById(R.id.editTextNumber);
+        button = findViewById(R.id.button);
     }
 
     // Gör så att den här metoden anropas vid ett knapptryck
@@ -32,11 +42,24 @@ public class MainActivity extends AppCompatActivity {
         // RegressionLine beräknar regressionslinjen på basen av våra datamängder
         // RegressionLine är alltså en klass som vi själva definierat (och som bör vidareutvecklas!)
         // Instansiera regressionLine t.ex. så här:
-        //RegressionLine regLine = new RegressionLine(xData, yData);
+
+
+        double inputY = Double.parseDouble(String.valueOf(editTextNumber.getText()));
+        System.out.println(inputY);
+
+        RegressionLine regLine = new RegressionLine(xData, yData, inputY);
+
+
 
         // Ta emot användarens input (längd) och spara i yValue
+
         // Använd ett try/catch-block för NumberFormatException så att appen inte crashar
         // om man skriver någonting annat än siffror
+        /*try {
+
+        } catch () {
+
+        }*/
 
         // Anropa regLine.getX()-metoden via objektet regLine, och använd yValue som parameter
         // Skicka svaret till en TextView i layouten!
