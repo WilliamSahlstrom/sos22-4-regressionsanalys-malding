@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -43,9 +44,15 @@ public class MainActivity extends AppCompatActivity {
         // RegressionLine är alltså en klass som vi själva definierat (och som bör vidareutvecklas!)
         // Instansiera regressionLine t.ex. så här:
 
+        double inputY = 0.0;
 
-        double inputY = Double.parseDouble(String.valueOf(editTextNumber.getText()));
-        System.out.println(inputY);
+        try {
+            inputY = Double.parseDouble(String.valueOf(editTextNumber.getText()));
+            System.out.println(inputY);
+            Toast.makeText(getApplicationContext(), String.format("Räknade "), Toast.LENGTH_LONG).show();
+        } catch (NumberFormatException e) {
+            Toast.makeText(getApplicationContext(), "Laita numero saatanan uuno : " + e.getMessage(), Toast.LENGTH_LONG).show();
+        }
 
         RegressionLine regLine = new RegressionLine(xData, yData, inputY);
 
@@ -55,11 +62,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Använd ett try/catch-block för NumberFormatException så att appen inte crashar
         // om man skriver någonting annat än siffror
-        /*try {
 
-        } catch () {
-
-        }*/
 
         // Anropa regLine.getX()-metoden via objektet regLine, och använd yValue som parameter
         // Skicka svaret till en TextView i layouten!

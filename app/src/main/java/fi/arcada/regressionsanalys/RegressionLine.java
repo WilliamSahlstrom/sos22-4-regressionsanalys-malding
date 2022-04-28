@@ -44,7 +44,7 @@ public class RegressionLine {
         m = meanY - k * meanX;
         System.out.println(m);
 
-        double outputX = inputY * k + m;
+        double outputX = (inputY - m) / k;
         System.out.println(outputX);
     }
 
