@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
     double yValue;
 
     // Deklarera övriga variabler och objekt du behöver, t.ex. TextViews osv.
-    TextView textView, textView2;
+    TextView textView, textView2, textView3;
     EditText editTextNumber;
     Button button;
 
@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
         // Här kommer som vanligt alla findViewById som behövs
         textView = findViewById(R.id.textView);
         textView2 = findViewById(R.id.textView2);
+        textView3 = findViewById(R.id.textView3);
         editTextNumber = findViewById(R.id.editTextNumber);
         button = findViewById(R.id.button);
     }
@@ -50,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
             System.out.println(inputY);
             Toast.makeText(getApplicationContext(), String.format("Räknade "), Toast.LENGTH_LONG).show();
         } catch (NumberFormatException e) {
-            Toast.makeText(getApplicationContext(), "Laita numero saatanan uuno : " + e.getMessage(), Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "Vänligen ange en siffra: " + e.getMessage(), Toast.LENGTH_LONG).show();
         }
 
         // RegressionLine beräknar regressionslinjen på basen av våra datamängder
@@ -63,8 +64,9 @@ public class MainActivity extends AppCompatActivity {
         //regLine.getX(inputY);
 
         textView.setText("Skostorlek: " + regLine.getX(inputY));
-
+        regLine.getR();
         // DEL 3: Anropa regLine.get()-metoden via objektet regLine, och använd yValue som parameter
+        textView3.setText("Korrelationskoefficient: " + regLine.getCorrelationGrade());
         // Skicka svaret till en TextView i layouten!
 
     }
